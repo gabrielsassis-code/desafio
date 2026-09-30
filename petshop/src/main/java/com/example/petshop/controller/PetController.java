@@ -1,5 +1,6 @@
 package com.example.petshop.controller;
 
+import com.example.petshop.dto.ResponsePetDTO;
 import com.example.petshop.entity.Pet;
 import com.example.petshop.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class PetController {
     public ResponseEntity<Pet> buscarPorId(@PathVariable Long id){
         return ResponseEntity.ok(petService.buscarPorId(id));
     }
-    @GetMapping("/{nome}")
-    public ResponseEntity<List<Pet>> buscarPorCliente(@PathVariable String nome){
+    @GetMapping("/cliente/{nome}")
+    public ResponseEntity<List<ResponsePetDTO>> buscarPorCliente(@PathVariable String nome){
         return ResponseEntity.ok(petService.buscarPorCliente(nome));
     }
 
@@ -31,7 +32,7 @@ public class PetController {
         return ResponseEntity.ok(petService.atualizar(pet,id));
     }
     @PostMapping("/salvar")
-    public ResponseEntity<Pet> salvar(@RequestBody Pet pet){
+    public ResponseEntity<ResponsePetDTO> salvar(@RequestBody Pet pet){
         return ResponseEntity.ok(petService.salvar(pet));
     }
 

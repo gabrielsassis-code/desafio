@@ -12,13 +12,13 @@ import java.util.List;
 public class Cliente {
     @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    @Column(name ="nome")
+    @Column(name ="nome",nullable = false)
     private String nome;
-    @Column(name ="telefone")
+    @Column(name ="telefone",nullable = false)
     private String telefone;
-    @Column(name ="email")
+    @Column(name ="email",nullable = false)
     private String email;
-    @Column(name ="endereco")
+    @Column(name ="endereco",nullable = false)
     private String endereco;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)

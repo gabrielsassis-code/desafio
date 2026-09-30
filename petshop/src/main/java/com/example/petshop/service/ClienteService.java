@@ -22,6 +22,8 @@ public class ClienteService {
         return clienteRepository.save(cliente);
     }
 
+
+
     public Cliente atualizar(Cliente cliente, Long id){
         if (!clienteRepository.existsById(id)){
             throw new ClienteException("Cliente não existe");
