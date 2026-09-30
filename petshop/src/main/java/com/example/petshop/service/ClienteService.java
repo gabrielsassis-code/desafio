@@ -1,8 +1,10 @@
 package com.example.petshop.service;
 
 import com.example.petshop.entity.Cliente;
+import com.example.petshop.entity.Pet;
 import com.example.petshop.exception.ClienteException;
 import com.example.petshop.repository.ClienteRepository;
+import com.example.petshop.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,10 @@ import java.util.List;
 public class ClienteService {
     @Autowired
     ClienteRepository clienteRepository;
-
+     PetRepository petRepository;
+    public  List<Pet> buscarPorNomeCliente(String nome){
+        return petRepository.findAllByClienteNome(nome);
+    }
     public Cliente salvar(Cliente cliente){
         if (clienteRepository.existsByNome(cliente.getNome())){
             throw new ClienteException("Cliente já existe");

@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Cliente {
     @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -17,6 +20,9 @@ public class Cliente {
     private String email;
     @Column(name ="endereco")
     private String endereco;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Pet> pets = new ArrayList<>();
 
     public Cliente() {
 
