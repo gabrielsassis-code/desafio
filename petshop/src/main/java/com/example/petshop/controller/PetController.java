@@ -22,7 +22,7 @@ public class PetController {
         return ResponseEntity.ok(petService.buscarPorId(id));
     }
     @GetMapping("/{nome}")
-    public ResponseEntity<List<Pet>> buscarPorId(@PathVariable String nome){
+    public ResponseEntity<List<Pet>> buscarPorCliente(@PathVariable String nome){
         return ResponseEntity.ok(petService.buscarPorCliente(nome));
     }
 

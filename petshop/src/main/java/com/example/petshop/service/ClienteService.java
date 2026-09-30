@@ -15,9 +15,6 @@ public class ClienteService {
     @Autowired
     ClienteRepository clienteRepository;
      PetRepository petRepository;
-    public  List<Pet> buscarPorNomeCliente(String nome){
-        return petRepository.findAllByClienteNome(nome);
-    }
     public Cliente salvar(Cliente cliente){
         if (clienteRepository.existsByNome(cliente.getNome())){
             throw new ClienteException("Cliente já existe");
